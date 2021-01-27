@@ -1,0 +1,5 @@
+Задание 14 (посчитать квадратный корень таблицей).
+
+Вернуть целую часть квадратного корня из целого числа, используя константную таблицу с
+ответами (entity sqrt is port ( x : in std_logic_vector(4 downto 0); sqrtX : out std_logic_vector(4
+downto 0)); end entity)

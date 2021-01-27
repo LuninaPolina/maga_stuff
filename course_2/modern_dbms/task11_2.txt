@@ -1,0 +1,37 @@
+src/redis-server
+cat task11_1.txt | redis-cli
+
+***узнать название первого лота
+redis-cli HMGET ITEM:1 NAME
+
+***посмотреть все значения полей третьего лота
+redis-cli HVALS ITEM:3
+
+***какова длина названия первого лота в символах
+redis-cli HSTRLEN ITEM:1 NAME
+
+***проверить наличие лотов в базе
+redis-cli EXISTS ITEM:1
+redis-cli EXISTS ITEM:2
+redis-cli EXISTS ITEM:3
+
+***показать всех, кто хотел купить лот 1 в порядке возрастания предложенной цены
+redis-cli ZRANGE HISTORY:1 0 -1
+
+***на каком месте находится цена, предложенная Романом
+redis-cli ZREVRANK HISTORY:3 "ROMAN"
+
+***сколько предложила Юлия за лот 2
+redis-cli ZSCORE HISTORY:2 "JULIA"
+
+***сколько секунд еще будет доступен лот 1
+redis-cli TTL ITEM:1
+
+***сколько на данный момент стоит лот 3
+redis-cli GET ITEM:3:CURRENT_PRICE
+
+***сколько человек хотело купить лот 3
+redis-cli ZCOUNT HISTORY:3 -inf +inf
+
+
+

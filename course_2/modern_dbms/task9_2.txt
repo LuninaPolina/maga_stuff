@@ -1,0 +1,30 @@
+MATCH (n)
+DETACH DELETE n
+
+CREATE (tula:City{name:"Tula"}), (msc:City{name:"Moscow"}), (elektrostal:City{name:"Elektrostal"}), (spb:City{name:"Saint-Petersburg"}), (tver:City{name:"Tver"}), (almetyevsk:City{name:"Almetyevsk"}), (ny:City{name:"New York"}), (tokyo:City{name:"Tokyo"}), (barnaul:City{name:"Barnaul"}), (tyumen:City{name:"Tyumen"}), (sydney:City{name:"Sydney"}), (beijing:City{name:"Beijing"}), (kazan:City{name:"Kazan"})
+
+CREATE (pushchino:town{name:"Pushchino"}), (serpukhov:town{name:"Serpukhov"}), (petergof:town{name:"Petergof"}), (gatchina:town{name:"Gatchina"}), (pushkin:town{name:"Pushkin"}), (orechovo:town{name:"Orechovo-Zuevo"}), (lomonosov:town{name:"Lomonosov"})
+
+CREATE (pronchishevo:village{name:"Pronchishevo"}), (kostrovo:village{name:"Kostrovo"}), (bgryzlovo:village{name:"Bolshoe Gryzlovo"}), (snopok:village{name:"Novy Snopok"}), (lisynos:village{name:"Lisy nos"}), (strelna:village{name:"Strelna"}), (lukyanovo:village{name:"Lukyanovo"}), (kichuchatovo:village{name:"Kichuchatovo"}), (peri:village{name:"Peri"}), (lipitsy:village{name:"Lipitsy"})
+
+CREATE (tula)<-[:BUS{min:180}]-(msc), (tula)<-[:TRAIN{min:120}]-(msc), (tula)<-[:BUS{min:80}]-(serpukhov), (tula)<-[:TRAIN{min:100}]-(serpukhov) , (tula)<-[:BUS{min:60}]-(kostrovo), (msc)<-[:TRAIN{min:90}]-(elektrostal), (msc)<-[:BUS{min:660}]-(spb), (msc)<-[:TRAIN{min:240}]-(spb), (msc)<-[:PLANE{min:70}]-(spb), (msc)<-[:BUS{min:150}]-(tver), (msc)<-[:TRAIN{min:100}]-(tver), (msc)<-[:PLANE{min:600}]-(ny), (msc)<-[:PLANE{min:600}]-(tokyo), (msc)<-[:PLANE{min:240}]-(barnaul), (msc)<-[:PLANE{min:165}]-(tyumen), (msc)<-[:TRAIN{min:3460}]-(barnaul), (msc)<-[:TRAIN{min:2280}]-(tyumen), (msc)<-[:PLANE{min:450}]-(beijing), (msc)<-[:PLANE{min:90}]-(kazan), (msc)<-[:TRAIN{min:750}]-(kazan), (msc)<-[:BUS{min:80}]-(pushchino), (msc)<-[:BUS{min:90}]-(serpukhov), (msc)<-[:TRAIN{min:100}]-(orechovo), (msc)<-[:BUS{min:60}]-(lipitsy), (elektrostal)<-[:TRAIN{min:50}]-(orechovo), (spb)<-[:BUS{min:390}]-(tver), (spb)<-[:TRAIN{min:180}]-(tver), (spb)<-[:PLANE{min:190}]-(tyumen), (spb)<-[:PLANE{min:130}]-(kazan), (spb)<-[:TRAIN{min:1350}]-(kazan), (spb)<-[:BUS{min:40}]-(petergof), (spb)<-[:TRAIN{min:50}]-(petergof), (spb)<-[:TRAIN{min:50}]-(gatchina), (spb)<-[:TRAIN{min:30}]-(pushkin), (spb)<-[:BUS{min:60}]-(lomonosov), (spb)<-[:TRAIN{min:60}]-(lomonosov), (spb)<-[:BUS{min:50}]-(lisynos), (spb)<-[:TRAIN{min:30}]-(lisynos), (spb)<-[:BUS{min:30}]-(strelna), (spb)<-[:TRAIN{min:30}]-(strelna), (spb)<-[:TRAIN{min:30}]-(peri), (almetyevsk)<-[:BUS{min:240}]-(kazan), (almetyevsk)<-[:BUS{min:40}]-(kichuchatovo), (ny)<-[:PLANE{min:840}]-(tokyo), (ny)<-[:PLANE{min:820}]-(beijing), (tokyo)<-[:PLANE{min:570}]-(sydney), (tokyo)<-[:PLANE{min:240}]-(beijing), (barnaul)<-[:TRAIN{min:1140}]-(tyumen), (pushchino)<-[:BUS{min:40}]-(serpukhov), (pushchino)<-[:BUS{min:10}]-(pronchishevo), (pushchino)<-[:BUS{min:20}]-(bgryzlovo), (pushchino)<-[:BUS{min:15}]-(lipitsy), (serpukhov)<-[:BUS{min:30}]-(pronchishevo), (serpukhov)<-[:BUS{min:40}]-(bgryzlovo), (serpukhov)<-[:BUS{min:40}]-(lukyanovo), (serpukhov)<-[:BUS{min:25}]-(lipitsy), (petergof)<-[:BUS{min:20}]-(lomonosov), (petergof)<-[:TRAIN{min:10}]-(lomonosov), (petergof)<-[:BUS{min:20}]-(strelna), (petergof)<-[:TRAIN{min:15}]-(strelna), (orechovo)<-[:BUS{min:30}]-(snopok), (lomonosov)<-[:BUS{min:35}]-(strelna), (lomonosov)<-[:TRAIN{min:30}]-(strelna)
+
+CREATE (tula)-[:BUS{min:180}]->(msc), (tula)-[:TRAIN{min:120}]->(msc), (tula)-[:BUS{min:80}]->(serpukhov), (tula)-[:TRAIN{min:100}]->(serpukhov) , (tula)-[:BUS{min:60}]->(kostrovo), (msc)-[:TRAIN{min:90}]->(elektrostal), (msc)-[:BUS{min:660}]->(spb), (msc)-[:TRAIN{min:240}]->(spb), (msc)-[:PLANE{min:70}]->(spb), (msc)-[:BUS{min:150}]->(tver), (msc)-[:TRAIN{min:100}]->(tver), (msc)-[:PLANE{min:600}]->(ny), (msc)-[:PLANE{min:600}]->(tokyo), (msc)-[:PLANE{min:240}]->(barnaul), (msc)-[:PLANE{min:165}]->(tyumen), (msc)-[:TRAIN{min:3460}]->(barnaul), (msc)-[:TRAIN{min:2280}]->(tyumen), (msc)-[:PLANE{min:450}]->(beijing), (msc)-[:PLANE{min:90}]->(kazan), (msc)-[:TRAIN{min:750}]->(kazan), (msc)-[:BUS{min:80}]->(pushchino), (msc)-[:BUS{min:90}]->(serpukhov), (msc)-[:TRAIN{min:100}]->(orechovo), (msc)-[:BUS{min:60}]->(lipitsy), (elektrostal)-[:TRAIN{min:50}]->(orechovo), (spb)-[:BUS{min:390}]->(tver), (spb)-[:TRAIN{min:180}]->(tver), (spb)-[:PLANE{min:190}]->(tyumen), (spb)-[:PLANE{min:130}]->(kazan), (spb)-[:TRAIN{min:1350}]->(kazan), (spb)-[:BUS{min:40}]->(petergof), (spb)-[:TRAIN{min:50}]->(petergof), (spb)-[:TRAIN{min:50}]->(gatchina), (spb)-[:TRAIN{min:30}]->(pushkin), (spb)-[:BUS{min:60}]->(lomonosov), (spb)-[:TRAIN{min:60}]->(lomonosov), (spb)-[:BUS{min:50}]->(lisynos), (spb)-[:TRAIN{min:30}]->(lisynos), (spb)-[:BUS{min:30}]->(strelna), (spb)-[:TRAIN{min:30}]->(strelna), (spb)-[:TRAIN{min:30}]->(peri), (almetyevsk)-[:BUS{min:240}]->(kazan), (almetyevsk)-[:BUS{min:40}]->(kichuchatovo), (ny)-[:PLANE{min:840}]->(tokyo), (ny)-[:PLANE{min:820}]->(beijing), (tokyo)-[:PLANE{min:570}]->(sydney), (tokyo)-[:PLANE{min:240}]->(beijing), (barnaul)-[:TRAIN{min:1140}]->(tyumen), (pushchino)-[:BUS{min:40}]->(serpukhov), (pushchino)-[:BUS{min:10}]->(pronchishevo), (pushchino)-[:BUS{min:20}]->(bgryzlovo), (pushchino)-[:BUS{min:15}]->(lipitsy), (serpukhov)-[:BUS{min:30}]->(pronchishevo), (serpukhov)-[:BUS{min:40}]->(bgryzlovo), (serpukhov)-[:BUS{min:40}]->(lukyanovo), (serpukhov)-[:BUS{min:25}]->(lipitsy), (petergof)-[:BUS{min:20}]->(lomonosov), (petergof)-[:TRAIN{min:10}]->(lomonosov), (petergof)-[:BUS{min:20}]->(strelna), (petergof)-[:TRAIN{min:15}]->(strelna), (orechovo)-[:BUS{min:30}]->(snopok), (lomonosov)-[:BUS{min:35}]->(strelna), (lomonosov)-[:TRAIN{min:30}]->(strelna)
+
+***показать все
+MATCH (n)-[r]->(m) 
+RETURN *
+
+***города, между которыми имеется прямая связь с Пущино
+MATCH (n{name:"Pushchino"})-[r]->(m) 
+RETURN *
+
+**города, в которые можно добраться из Пушино только автобусными маршрутами
+MATCH path = shortestPath((m)-[:BUS*]-(n)) 
+WHERE m.name = 'Pushchino' AND n.name <> 'Pushchino'
+RETURN *
+
+***на чем и за сколько можно доехать из мск в спб
+MATCH (n{name:"Moscow"})-[r]->(m{name:"Saint-Petersburg"}) 
+RETURN type(r), r.min
+

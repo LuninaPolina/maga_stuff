@@ -1,0 +1,184 @@
+db.smartphone.insertMany([
+{
+	brand: "Meizu",
+	model: "Pro 7", 
+	price: 8000,
+	os: ["Android 7.0", "Flyme 7.3"],
+	cpu: {name: "Helio P25", frequency: 2600},
+	storage: 64,
+	display: {diagonal: 5.2, resolution: "1920x1080"}
+},
+{
+	brand: "XIAOMI",
+	model: "Redmi Note 9S", 
+	price: 16000,
+	os: "Android 10.0",
+	cpu: {name: "Qualcomm Snapdragon 720G", frequency: 2300},
+	storage: 64,
+	display: {diagonal: 6.67, resolution: "2400x1080"}
+},
+{
+	brand: "Samsung",
+	model: "Galaxy S20 Gray", 
+	price: 55000,
+	os: "Android 10.0",
+	cpu: {name: "Exynos 990"},
+	storage: 128,
+	display: {diagonal: 6.2, resolution: "3200x1440"}
+},
+{
+	brand: "Apple",
+	model: "iPhone 12", 
+	price: 84000,
+	os: "ios",
+	cpu: {name: "A14 Bionic"},
+	storage: 128,
+	display: {diagonal: 6.1, resolution: "2532x1170"},
+	cameras: 2
+},
+{
+	brand: "Samsung",
+	model: "Galaxy S20 Ultra", 
+	price: 95000,
+	os: "Android 10.0",
+	cpu: {name: "Exynos 990", frequency: "2730 + 2500 + 2000"},
+	storage: 128,
+	display: {diagonal: 6.9, resolution: "3200x1440"}, 
+	cameras: 5
+},
+{
+	brand: "Apple",
+	model: "iPhone 12 mini", 
+	price: 72000,
+	os: "ios",
+	cpu: {name: "A14 Bionic"},
+	storage: 128,
+	display: {diagonal: 5.4, resolution: "2340x1080"},
+	cameras: 2
+},
+{
+	brand: "Irbis",
+	model: "SP402", 
+	price: 2000,
+	os: "Android 7.0",
+	cpu: {frequency: 1300},
+	storage: 4,
+	display: {diagonal: 4, resolution: "800x480"}
+},
+{
+	brand: "Huawei",
+	model: "P40 Lite 6", 
+	price: 18000,
+	os: "Android 10.0",
+	cpu: {name: "Kirin 810", frequency: "2 х 2270 + 6 х 1880"},
+	storage: 128,
+	display: {diagonal: 6.4, resolution: "2310x1080"}
+},
+{
+	brand: "Xiaomi",
+	model: "Mi 10T Pro 8", 
+	price: 46000,
+	os: ["Android 7.0", "Flyme 7.3"],
+	cpu: {name: "Snapdragon 865", frequency: 2840},
+	storage: 256,
+	display: {diagonal: 6.67, resolution: "2400x1080"}
+},
+{
+	brand: "Honor",
+	model: "9C Aurora Blue", 
+	price: 13000,
+	os: "Android 10.0",
+	storage: 64,
+	display: {diagonal: 6.39, resolution: "1560x720"}
+},
+{
+	brand: "Huawei",
+	model: "Mate 40 Pro Mystic Silver", 
+	price: 82000,
+	os: "Android 10.0",
+	cpu: {name: "Kirin 9000", frequency: "1 x 3130 + 3 x 2540 + 4 x 2050"},
+	storage: 256,
+	display: {diagonal: 6.76, resolution: "2772x1344"}
+},
+{
+	brand: "Nokia",
+	model: "4.2 Blue", 
+	price: 8500,
+	os: "Android 9",
+	cpu: {name: "Qualcomm Snapdragon 439", frequency: "1950"},
+	storage: 32,
+	display: {diagonal: 5.71, resolution: "1520x720"}
+},
+{
+	brand: "Meizu",
+	model: "Note 9", 
+	price: 13000,
+	os: "Android 9.0",
+	cpu: {name: "Qualcomm Snapdragon 675", frequency: "2000"},
+	storage: 128,
+	display: {diagonal: 6.2, resolution: "2244x1080"}
+},
+{
+	brand: "Xiaomi",
+	model: "Redmi 9A", 
+	price: 8000,
+	os: "Android 10.0",
+	cpu: {name: "Mediatek Helio G25", frequency: "2000"},
+	storage: 32,
+	display: {diagonal: 6.53, resolution: "1600x720"}
+},
+{
+	brand: "Nokia",
+	model: "5.3 3", 
+	price: 12000,
+	os: "Android 10.0",
+	cpu: {name: "Qualcomm Snapdragon 665", frequency: "2000"},
+	storage: 64,
+	display: {diagonal: 6.55, resolution: "1600x720"}
+},
+{
+	brand: "Nokia",
+	model: "Lumia 920 Yellow", 
+	price: 9500,
+	os: "MS Windows Phone 8",
+	storage: 32,
+	display: {diagonal: 4.5, resolution: "1280x768"}
+},
+{
+	brand: "Apple",
+	model: "iPhone 7", 
+	price: 30000,
+	os: "ios",
+	cpu: {name: "A10 Fusion + M10"},
+	storage: 32,
+	display: {diagonal: 4.7, resolution: "1334x750"}
+},
+{
+	brand: "Honor",
+	model: "30i 4 Phantom Blue", 
+	price: 16000,
+	os: "Android 10.0",
+	cpu: {name: "HiSilicon Kirin 710F", frequency: "2200"},
+	storage: 128,
+	display: {diagonal: 6.3, resolution: "2400x1080"}
+},
+{
+	brand: "Samsung",
+	model: "Galaxy M31", 
+	price: 22500,
+	os: "Android 10.0",
+	cpu: {name: "Samsung Exynos 9611 Octa", frequency: "2300"},
+	storage: 128,
+	display: {diagonal: 6.4, resolution: "2340x1080"}
+},
+{
+	brand: "Xiaomi",
+	model: "Mi 10 8", 
+	price: 70000,
+	os: ["Android", "Xiaomi MIUI"],
+	cpu: {name: "Qualcomm Snapdragon 865", frequency: "2840"},
+	storage: 256,
+	display: {diagonal: 6.67, resolution: "2340x1080"}, 
+	instock: false
+}
+])

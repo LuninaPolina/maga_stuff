@@ -1,0 +1,18 @@
+https://docs.mongodb.com/manual/tutorial/insert-documents/
+
+***запрос, который выводит среднюю цену на смартфоны каждого производителя
+db.smartphone.aggregate( [ { $group: { _id: "$brand", average: { $avg: "$price" } } } ] )
+
+***запрос, который выводит все операционные системы, присутствующие в базе
+db.smartphone.distinct("os")
+
+***запрос, который добавит телефонам, цена которых от 50000 ифнормацию о том, что их можно покупать в рассрочку
+db.smartphone.updateMany( { price: { $gte: 50000 } }, { $set: { installment: true } } )
+db.smartphone.find( { }, { _id: 0, model: 1, price: 1, installment: 1 } )
+
+***запрос, который выводит в отсортированном по возрастанию объема памяти модели телефонов на базе ос андроид
+db.smartphone.find( {os: {$regex : ".*Android.*"} }, { _id: 0, model: 1, storage: 1 } ).sort( { storage: -1} )
+
+***запрос, который выводит всю информацию о телефонах, у которых диагональ экрана больше 6 и цена меньше 20000
+db.smartphone.find( { $and: [ { "display.diagonal": { $gt: 6 } }, { price: { $lt: 20000} } ] }, { _id: 0 } ).pretty()
+

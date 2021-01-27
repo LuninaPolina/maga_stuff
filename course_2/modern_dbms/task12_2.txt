@@ -1,0 +1,61 @@
+bin/cqlsh localhost
+
+***вывести всех писателей
+SELECT DISTINCT GENRE
+FROM BOOK.BOOK_GENRE;
+
+***выдать книги жанра 'детектив', отсортированные в порядке возрастания года издания
+SELECT BOOK_NAME, YEAR
+FROM BOOK.BOOK_GENRE
+WHERE GENRE = 'Detective'
+ORDER BY YEAR
+ALLOW FILTERING;
+
+***сколько книг жанра 'научная фантастика' в базе?
+SELECT COUNT(*)
+FROM BOOK.BOOK_GENRE
+WHERE GENRE = 'Science fiction';
+
+***выдать книги с рейтингом 5
+SELECT BOOK_NAME
+FROM BOOK.BOOK_RATING
+WHERE RATING = 5
+ALLOW FILTERING;
+
+***какой рейтинг у книги война и мир?
+SELECT RATING
+FROM BOOK.BOOK_RATING
+WHERE BOOK_NAME = 'War and Peace'
+ALLOW FILTERING;
+
+***какой минимальный возраст пользователя?
+SELECT MIN(AGE)
+FROM USER.USER_AGE
+ALLOW FILTERING;
+
+***вывести книги и оценки пользователя №1 в порядке возрастания
+SELECT BOOK_NAME, RATING
+FROM USER.USER_BOOK
+WHERE USER_ID = 1
+ORDER BY RATING;
+
+***вывести пользователей и их оценки книги 'война и мир'
+SELECT USER_NAME, RATING
+FROM USER.USER_BOOK
+WHERE BOOK_NAME = 'War and Peace'
+ALLOW FILTERING;
+
+***сколько книг написал каждый писатель?
+SELECT WRITER_ID, WRITER_NAME, COUNT(BOOK_ID)
+FROM WRITER.WRITER_BOOK
+GROUP BY WRITER_ID;
+
+***в каком году были написаны 'приключения шерлока холмса'
+SELECT YEAR
+FROM WRITER.WRITER_BOOK
+WHERE BOOK_NAME = 'The Adventures of Sherlock Holmes'
+ALLOW FILTERING;
+
+
+
+

@@ -1,0 +1,36 @@
+***посмотреть на метаданные графа (схему)
+CALL db.schema()
+
+***создать новую стойку c несколькими маршрутизаторами, связать с датацентром, вывести результат
+(удалить если надо)
+MATCH (n { name: 'TEST_RACK' }) DETACH DELETE n;
+MATCH (n { name: 'TEST_DATA_CENTER' }) DETACH DELETE n
+
+CREATE (r:Rack{name:"TEST_RACK"}), (s1:Switch{ip:"1.1.1"}), (s2:Switch{ip:"2.2.2"}), (s3:Switch{ip:"3.3.3"}), (dc:DataCenter{name:"TEST_DATA_CENTER", location:"Russia,Saint-Petersburg"})
+CREATE (r)-[:HOLDS]->(s1), (r)-[:HOLDS]->(s2), (r)-[:HOLDS]->(s3), (dc)-[:CONTAINS]->(r)
+
+MATCH (dc:DataCenter{name:"TEST_DATA_CENTER"})-[:CONTAINS]->(r:Rack)-[:HOLDS]->(s:Switch) RETURN *
+
+***найти суммарный объём оперативной памяти на машинах стойки “DC1-RCK-1-10”
+MATCH (r:Rack{name:"DC1-RCK-1-10"})-[:HOLDS]->(m:Machine)-[:TYPE]->(t:Type) 
+RETURN *
+
+MATCH (r:Rack{name:"DC1-RCK-1-10"})-[:HOLDS]->(m:Machine)-[:TYPE]->(t:Type) 
+RETURN SUM(t.ram)
+
+***найти самую актуальную версию ОС Ubuntu в датацентре
+MATCH (os:OS{name:"Ubuntu"})-[:VERSION]->(v:Version) 
+RETURN MAX(v)
+
+***найти сервисы, которые запущены на машине "DC1-RCK-1-1-M-24"
+MATCH (m:Machine{name:"DC1-RCK-1-1-M-24"})-[:RUNS]->(s:Service) 
+RETURN s
+
+***найти сервис с самой длинной цепью версий
+MATCH path = (s:Service)-[:VERSION]->(v:Version)
+RETURN *
+
+MATCH path = (s:Service)-[:VERSION]->(vlst:Version)-[:PREVIOUS*]->(vfst:Version)
+RETURN s ORDER BY length(path) DESC LIMIT 1
+
+
